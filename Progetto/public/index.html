@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> -->
+            
+
+    <title>Demo progetto!</title>
+    <style>
+        body {
+            background: #f8f7f5;
+            font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+            color: #888888;
+        }
+        .center {
+          margin: auto;
+          width: 30%;
+        }
+        .center_vid {
+          margin: auto;
+          width: 80%;
+          border-radius: 6px; 
+          padding: 40px; 
+          line-height: 0;
+          overflow: auto;
+          white-space: nowrap;
+        }
+        li {
+          display:inline-block!important;
+        }
+        .show_vid {
+          position: relative;
+          bottom: 235px;
+        }
+        .show_vid_text {
+          position: relative;
+          right: 280px;
+          top: 20px;
+        }
+        .btn {
+          background-color: #26a69a;
+          color: white;
+        }
+       
+    </style>
+  </head>
+  <body>
+    <br><br><h1 class="text-center" id="text-up">Video upload!</h1><br><br><br><br>
+    <div class="text-center" id="upl">
+      <input type="file" id="upload_input" multiple/>
+      <button id="upload" class="btn">Upload</button>
+    </div><br>
+    <ul id="dataset" class="center_vid hs full"></ul>
+    <br><br><br><button id="run" class="btn center" style="display: block;" data-toggle="modal" data-target="#myModal">Run!</button><br><br>
+    <h1 id="title_output" class="text-center" style="display: none;">Output!</h1><br>
+    <ul id="output" class="center_vid hs full"></ul>
+    <div id="zoom_output"></div>
+  <!-- Modal -->
+  <div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+        </div>
+        <div class="modal-body text-center">
+          <p id="loading">Algoritmo in esecuzione, attendere...</p>
+          <img id="loadgif" src="Infinity.gif" alt="">
+        </div>
+        <div class="modal-footer"></div>
+      </div>
+
+    </div>
+  </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="src/upload.js"></script> 
+    <script src="src/client.js"></script> 
+    <script type="text/javascript">
+      document.addEventListener("DOMContentLoaded", function(){
+          // Configure the three ways that SocketIOFileUpload can read files:
+          var siofu = new SocketIOFileUpload(sock);
+          siofu.listenOnInput(document.getElementById("upload_input"));
+          // Do something on upload progress:
+          siofu.addEventListener("progress", function(event){
+              var percent = event.bytesLoaded / event.file.size * 100;
+              console.log("File is", percent.toFixed(2), "percent loaded");
+          });
+  
+          // Do something when a file is uploaded:
+          siofu.addEventListener("complete", function(event){
+              console.log(event.success);
+              console.log(event.file);
+          });
+  
+      }, false);
+    </script>
+    <script>
+      
+    </script>
+  </body>
+</html>
