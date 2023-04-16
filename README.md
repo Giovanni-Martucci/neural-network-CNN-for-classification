@@ -1,15 +1,13 @@
 # neural-network-CNN-for-classification
 
 
-Il task di questo progetto è “classificare i differenti tocchi delle varie manopole in un forno domestico”.
-Nello specifico, dato un forno, il nostro algoritmo, attraverso una rete neurale addestrata ad hoc, deve essere in grado di riconoscere se non si sta toccando alcuna manopola oppure, se si, quale nello specifico.
+The task of this project is to "classify the different touches of the various knobs in a domestic oven". Specifically, given an oven, our algorithm, through a custom-trained neural network, must be able to recognize whether no knob is being touched or, if so, which one specifically.
 
-In questo progetto si è dovuto lavorare su delle immagini, utilizzate come input per la nostra rete. Motivo per cui è stata utilizzata una Rete Neurale Convoluzionale (CNN) che permette di applicare le reti neurali al processamento di immagini, riuscendo a scalare immagini di grandi dimensioni e grossi dataset di immagini.
+In this project, we had to work with images, used as input for our network. This is why a Convolutional Neural Network (CNN) was used, which allows neural networks to be applied to image processing, scaling large images and large datasets of images.
 
-Questo problema della classificazione del tocco/non tocco in un forno domestico, in realtà, può essere esteso a macchinari industriali pensando a delle azioni che conseguono da determinate scelte. Ad esempio, è possibile pensare che dopo aver toccato un determinato pulsante, il sistema dia avvio a una specifica azione o mostri delle istruzioni inerenti a quel pulsante.
+This problem of touch/non-touch classification in a domestic oven can actually be extended to industrial machinery, thinking of actions that result from certain choices. For example, it is possible to imagine that after touching a certain button, the system starts a specific action or displays instructions related to that button.
 
-
-PS: se si vuole replicare l'allenamento della rete bisogna creare nuovamente il dataset dividendo i video manualmente o con qualsiasi altro software i all'interno della cartella Video test e dividerle  nelle 4 cartelle di dataset (left,right,center e null)
+PS: If you want to replicate the training of the network, you need to create the dataset again by manually dividing the videos or using any other software( like Roboflow) within the Video test folder and dividing them into the 4 dataset folders (left, right, center, and null).
 
 #Usage
-Per usare la seguente rete neurale bisogna lanciare lo script Progetto.py conn il path del video da analizzare
+To use the following neural network, you need to run the Progetto.py script with the path of the video to analyze
